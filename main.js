@@ -5,7 +5,13 @@ $(document).ready(function () {
 
   let i = 0;
 
-  $prevButton.click(() => {});
+  $prevButton.click(() => {
+    if (i > 0) {
+      $($slides[i]).fadeOut();
+      $($slides[i - 1]).fadeIn();
+      i--;
+    }
+  });
 
   $nextButton.click(() => {
     if (i < $slides.length - 1) {
