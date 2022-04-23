@@ -8,6 +8,17 @@ $(document).ready(function () {
 
   let i = 0;
 
+  const darkMode = localStorage.getItem("darkmode");
+  if (darkMode) {
+    $("body").addClass("dark");
+  }
+  const $btnToggle = $(".btn-toggle");
+
+  $btnToggle.click(() => {
+    $("body").toggleClass("dark");
+    localStorage.setItem("darkmode", true);
+  });
+
   function clickPrev() {
     if (i > 0) {
       $($slides[i]).fadeOut();
