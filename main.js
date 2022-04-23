@@ -3,10 +3,23 @@ $(document).ready(function(){
     const $slides = $(".slide");
     const $prevButton = $(".slider__button--prev");
     const $nextButton = $(".slider__button--next");
+    
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
 
     let i = 0;
+
+    const $btnToggle = $(".btn-toggle");
+
+    const darkMode = localStorage.getItem("darkmode");
+    if (darkMode) {
+        $("body").addClass("dark");
+    }
+
+    $btnToggle.click(() => {
+        $("body").toggleClass("dark");
+        localStorage.setItem("darkmode", true)
+    })
 
     function rightButtonClick(){
         if(i<$slides.length -1) {

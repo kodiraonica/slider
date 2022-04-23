@@ -9,6 +9,11 @@
 body, html {
     font-family: 'Rubik', sans-serif;
     color: var(--independence);
+    transition: background-color .5s ease-in-out;
+}
+
+body.dark {
+    background-color: #292929;
 }
 
 .slider-wrapper {
@@ -69,3 +74,12 @@ body, html {
     margin-right: 2px;
 }
 
+.btn-toggle {
+    border: none;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
