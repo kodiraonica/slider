@@ -6,6 +6,18 @@ $(document).ready(function() {
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
 
+    const darkMode = localStorage.getItem("darkmode");
+    if (darkMode) {
+        $("body").addClass("dark");
+    };
+
+    const $btnToggle = $(".btn-toggle");
+
+    $btnToggle.click(() => {
+        $("body").toggleClass("dark");
+        localStoragesetItem("darkmode", true);
+    })
+
     let i = 0;
 
     function clickPrev() {
