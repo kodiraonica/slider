@@ -42,7 +42,7 @@ html {
 }
 
 .slide:nth-child(2) {
-  background-color: var(--fire-opal);
+  background-color: var(--cyan-process);
 }
 
 .slide:nth-child(3) {
