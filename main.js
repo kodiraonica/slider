@@ -4,7 +4,20 @@ $(document).ready(function () {
     const $nextButton = $(".slider__button--next");
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
+
     let i = 0;
+
+    const darkMode = localStorage.getItem("darkmode");
+    if (darkMode) {
+        $("body").addClass("dark");
+    }
+
+    const $btnToggle = $(".btn-toggle");
+
+    $btnToggle.click(() => {
+        $("body").toggleClass("dark");
+        localStorage.setItem("darkmode", true);
+    })
 
     function forNext() {
         if (i < $slides.length - 1) {
