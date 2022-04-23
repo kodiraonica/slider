@@ -30,13 +30,13 @@ $(document).ready(function () {
         forNext();
     });
 
-    $("body").keydown(e) => {
+    $("body").keydown((e) => {
         if (e.keyCode == keyCodeLeft) {
             forPrev();
         }
         else if (e.keyCode == keyCodeRight) {
             forNext();
         }
-    };
+    });
 
 });
