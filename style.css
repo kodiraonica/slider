@@ -25,16 +25,21 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
+  display: none;
+}
+
+.slide:first-child {
+  display: block;
 }
 
 .slide h2 {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: var(--magnolia);
-    font-size: 4rem;
-    margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: var(--magnolia);
+  font-size: 4rem;
+  margin: 0;
 }
 
 .slide:first-child {
@@ -46,8 +51,8 @@ html {
 }
 
 .slide:nth-child(3) {
-    background-color: var(--forest-green-crayola);
-  }
+  background-color: var(--forest-green-crayola);
+}
 
 .slider__navigation {
   position: absolute;
@@ -64,5 +69,5 @@ html {
 }
 
 .slider__button:first-child {
-    margin-right: 2px;
+  margin-right: 2px;
 }
