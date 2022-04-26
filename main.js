@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   $btnToggle.click(() => {
     if ($("body").hasClass("dark")) {
-      $("body").toggleClass("dark");
+      $("body").removeClass("dark");
       localStorage.setItem("darkmode", false);
     } else {
       $("body").addClass("dark");
