@@ -1,60 +1,69 @@
-$(document).ready(function(){
-
+$(document).ready(function () {
     const $slides = $(".slide");
+    const slidesIndex = $slides.length - 1;
     const $prevButton = $(".slider__button--prev");
     const $nextButton = $(".slider__button--next");
-    
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
 
     let i = 0;
 
-    const $btnToggle = $(".btn-toggle");
-
     const darkMode = localStorage.getItem("darkmode");
-    if (darkMode) {
+    if (darkMode === "true") {
         $("body").addClass("dark");
     }
 
+    const $btnToggle = $(".btn-toggle");
+
     $btnToggle.click(() => {
-        $("body").toggleClass("dark");
-        localStorage.setItem("darkmode", true)
+        if ($("body").hasClass("dark")) {
+            $("body").removeClass("dark");
+            localStorage.setItem("darkmode", false);
+        } else {
+            $("body").addClass("dark");
+            localStorage.setItem("darkmode", true);
+        }
     })
 
-    function rightButtonClick(){
-        if(i<$slides.length -1) {
+    function itemNext() {
+        if (i < $slides.length - 1) {
             $($slides[i]).fadeOut();
-            $($slides[i+1]).fadeIn();
+            $($slides[i + 1]).fadeIn();
             i++
-            }
-    };
-
-    function leftButtonClick(){
-        if(i> 0) {
+        } else {
             $($slides[i]).fadeOut();
-            $($slides[i-1]).fadeIn();
+            $($slides[0]).fadeIn();
+            i = 0;
+        }
+    }
+
+    function itemPrev() {
+        if (i > 0) {
+            $($slides[i]).fadeOut();
+            $($slides[i - 1]).fadeIn();
             i--
-        } 
+        } else {
+            $($slides[i]).fadeOut();
+            $($slides[slidesIndex]).fadeIn();
+            i = slidesIndex;
+        }
     }
 
     $prevButton.click(() => {
-        leftButtonClick();
-
+        itemPrev();
     });
 
     $nextButton.click(() => {
-        rightButtonClick();
-        }
-    );
+        itemNext();
+    });
 
     $("body").keydown((e) => {
-        if(e.keyCode == keyCodeLeft){
-           leftButtonClick();
-            } 
+        if (e.keyCode == keyCodeLeft) {
+            itemPrev();
+        }
         else if (e.keyCode == keyCodeRight) {
-            rightButtonClick();
-            }
+            itemNext();
+        }
     });
 
 });
-
