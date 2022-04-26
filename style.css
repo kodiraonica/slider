@@ -10,11 +10,11 @@ body,
 html {
   font-family: "Rubik", sans-serif;
   color: var(--independence);
-  transition: background-color .5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 body.dark {
-    background-color: #292929;
+  background-color: #292929;
 }
 
 .slider__wrapper {
@@ -76,10 +76,38 @@ body.dark {
 
 .btn-toggle {
   border: none;
-  position: fixed;
+  /* position: fixed;
   left: 10px;
-  top: 10px;
+  top: 10px; */
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #292929;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 70px;
+  z-index: 98;
+  transform: translateX(-100);
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+nav.open {
+  transform: translateX(0);
+}
+
+.button--nav {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 99;
+  padding: 8px;
+  cursor: pointer;
 }
