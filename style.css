@@ -1,7 +1,7 @@
 :root {
     --fire-opal: #ee6352ff;
     --cyan-process: #08b2e3ff;
-    --magnolia: #efe9f4ff;
+    --magnolia: rgb(229, 211, 245);
     --forest-green-crayola: #57a773ff;
     --independence: #484d6dff;
 }
@@ -15,6 +15,10 @@ html {
 
 body.dark {
     background-color: #292929;
+}
+
+body.light {
+    background-color: white;
 }
 
 .slider__wrapper {
@@ -71,7 +75,7 @@ body.dark {
 }
 
 .slider__button:first-child {
-    margin-right: 2px;
+    margin-right: 6px;
 }
 
 .btn-toggle {
