@@ -6,6 +6,7 @@ $(document).ready(function () {
 
   const keyCodeRight = 39;
   const keyCodeLeft = 37;
+  const keyCodeEscape = 27;
 
   let i = 0;
 
@@ -25,6 +26,11 @@ $(document).ready(function () {
       localStorage.setItem("darkmode", true);
     }
   });
+
+  
+    $('.button--nav').click(function () {
+      toggleNavigation();
+    });
 
   function clickPrev() {
     if (i > 0) {
@@ -63,10 +69,10 @@ $(document).ready(function () {
       clickPrev();
     } else if (e.keyCode == keyCodeRight) {
       clickNext();
+    } else if (e.keyCode = keyCodeEscape) {
+      toggleNavigation();
     }
   });
 });
 
-$('.button--nav').click(function () {
-  $("nav").toggleClass("open");
-});
+
