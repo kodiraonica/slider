@@ -1,5 +1,6 @@
 $(document).ready(function () {
     const $slides = $(".slide");
+    const slidesIndex = $slides.lenght - 1;
     const $prevButton = $(".slider__button--prev");
     const $nextButton = $(".slider__button--next");
     const keyCodeRight = 39;
@@ -29,6 +30,8 @@ $(document).ready(function () {
             $($slides[i]).fadeOut();
             $($slides[i + 1]).fadeIn();
             i++
+        } else {
+
         }
     }
 
@@ -37,6 +40,10 @@ $(document).ready(function () {
             $($slides[i]).fadeOut();
             $($slides[i - 1]).fadeIn();
             i--
+        } else {
+            $($slides[i]).fadeOut();
+            $($slides[slidesIndex]).fadeIn();
+            i = slidesIndex;
         }
     }
 
@@ -56,9 +63,5 @@ $(document).ready(function () {
             itemNext();
         }
     });
-
-    if (i >= $slides.lenght) { i = 0 };
-
-    if (i < 0) { i = $slides.lenght - 1 };
 
 });
