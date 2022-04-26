@@ -1,6 +1,6 @@
 $(document).ready(function () {
     const $slides = $(".slide");
-    const slidesIndex = $slides.lenght - 1;
+    const slidesIndex = $slides.length - 1;
     const $prevButton = $(".slider__button--prev");
     const $nextButton = $(".slider__button--next");
     const keyCodeRight = 39;
