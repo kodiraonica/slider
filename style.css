@@ -104,6 +104,11 @@ nav.open {
     transform: translateX(0);
 }
 
+nav button {
+    display: block;
+    margin-bottom: 10px;
+}
+
 .button--nav {
     position: fixed;
     left: 20px;
