@@ -66,4 +66,11 @@ $(document).ready(function () {
         }
     });
 
+    (function btnToggle() {
+        $('.btn-toggle').click(function () {
+            $('.button button--nav').slideToggle();
+        });
+    })
+
+
 });
