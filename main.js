@@ -27,10 +27,15 @@ $(document).ready(function () {
     }
   });
 
-  
-    $('.button--nav').click(function () {
-      toggleNavigation();
+  $(".button--nav").click(function () {
+    toggleNavigation();
+  });
+
+  function toggleNavigation() {
+    $(".button--nav").click(function () {
+      $("nav").toggleClass("open");
     });
+  }
 
   function clickPrev() {
     if (i > 0) {
@@ -69,10 +74,8 @@ $(document).ready(function () {
       clickPrev();
     } else if (e.keyCode == keyCodeRight) {
       clickNext();
-    } else if (e.keyCode = keyCodeEscape) {
+    } else if ((e.keyCode = keyCodeEscape)) {
       toggleNavigation();
     }
   });
 });
-
-
