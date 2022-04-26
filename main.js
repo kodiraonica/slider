@@ -9,14 +9,20 @@ $(document).ready(function () {
   let i = 0;
 
   const darkMode = localStorage.getItem("darkmode");
-  if (darkMode) {
+  if (darkMode === "true") {
     $("body").addClass("dark");
   }
+
   const $btnToggle = $(".btn-toggle");
 
   $btnToggle.click(() => {
-    $("body").toggleClass("dark");
-    localStorage.setItem("darkmode", true);
+    if ($("body").hasClass("dark")) {
+      $("body").removeClass("dark");
+      localStorage.setItem("darkmode", false);
+    } else {
+      $("body").addClass("dark");
+      localStorage.setItem("darkmode", true);
+    }
   });
 
   function clickPrev() {
