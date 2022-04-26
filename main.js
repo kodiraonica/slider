@@ -5,6 +5,7 @@ $(document).ready(function () {
     const $nextButton = $(".slider__button--next");
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
+    const keyCodeEscape = 27;
 
     let i = 0;
 
@@ -24,6 +25,17 @@ $(document).ready(function () {
             localStorage.setItem("darkmode", true);
         }
     })
+
+    $('.button--nav').click(function () {
+        $('nav').toggleClass("open");
+    });
+
+    function toggleNavigation() {
+        $('.button--nav').click(function () {
+            $('nav').toggleClass("open");
+        });
+
+    }
 
     function itemNext() {
         if (i < $slides.length - 1) {
@@ -63,11 +75,9 @@ $(document).ready(function () {
         }
         else if (e.keyCode == keyCodeRight) {
             itemNext();
+        }else if(e.keyCode == keyCodeEscape) {
+            toggleNavigation();
         }
-    });
-
-    $('.button--nav').click(function () {
-        $('nav').toggleClass("open");
     });
 
 });
