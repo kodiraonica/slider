@@ -8,18 +8,23 @@ $(document).ready(function () {
     let i = 0;
 
     const darkMode = localStorage.getItem("darkmode");
-    if (darkMode) {
+    if (darkMode === "true") {
         $("body").addClass("dark");
     }
 
     const $btnToggle = $(".btn-toggle");
 
     $btnToggle.click(() => {
-        $("body").toggleClass("dark");
-        localStorage.setItem("darkmode", true);
+        if ($("body").hasClass("dark")) {
+            $("body").removeClass("dark");
+            localStorage.setItem("darkmode", false);
+        } else {
+            $("body").addClass("dark");
+            localStorage.setItem("darkmode", true);
+        }
     })
 
-    function forNext() {
+    function itemNext() {
         if (i < $slides.length - 1) {
             $($slides[i]).fadeOut();
             $($slides[i + 1]).fadeIn();
@@ -27,7 +32,7 @@ $(document).ready(function () {
         }
     }
 
-    function forPrev() {
+    function itemPrev() {
         if (i > 0) {
             $($slides[i]).fadeOut();
             $($slides[i - 1]).fadeIn();
@@ -36,20 +41,24 @@ $(document).ready(function () {
     }
 
     $prevButton.click(() => {
-        forPrev();
+        itemPrev();
     });
 
     $nextButton.click(() => {
-        forNext();
+        itemNext();
     });
 
     $("body").keydown((e) => {
         if (e.keyCode == keyCodeLeft) {
-            forPrev();
+            itemPrev();
         }
         else if (e.keyCode == keyCodeRight) {
-            forNext();
+            itemNext();
         }
     });
+
+    if (i >= $slides.lenght) { i = 0 };
+
+    if (i < 0) { i = $slides.lenght - 1 };
 
 });
