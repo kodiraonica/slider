@@ -6,13 +6,52 @@
     --independence: #484d6dff;
 }
 
-body, html {
-    font-family: 'Rubik', sans-serif;
-    color: var(--independence);
+* {
+    box-sizing: border-box;
 }
 
-a {
-    color: var(--cyan-process);
+body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    color: var(--independence);
+    transition: background-color .5s ease-in-out;
+}
+
+body.dark {
+    background-color: #292929;
+}
+
+nav {
+    background-color: #292922;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translateX(-100%);
+    z-index: 998;
+    transition: transform .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav.open {
+    transform: translateX(0%);
+}
+
+nav button {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: var(--magnolia);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
 .slider__wrapper {
@@ -20,12 +59,6 @@ a {
     width: 80%;
     margin: 0 auto;
     min-height: 500px;
-    overflow: hidden;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 50px;
 }
 
 .slide {
@@ -37,9 +70,13 @@ h1 {
     display: none;
 }
 
+.slide:first-child{
+    display: block;
+}
+
 .slide h2 {
     position: relative;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
     text-align: center;
     color: var(--magnolia);
@@ -48,22 +85,22 @@ h1 {
 }
 
 .slide:first-child {
-    background-color:var(--fire-opal);
-    display: block;
+    background-color: var(--fire-opal);
 }
 
-.slide:nth-child(2){
-    background-color:var(--cyan-process);
+.slide:nth-child(2) {
+    background-color: var(--cyan-process);
 }
 
-.slide:nth-child(3){
-    background-color:var(--forest-green-crayola);
+.slide:nth-child(3) {
+    background-color: var(--forest-green-crayola);
 }
 
 .slider__navigation {
     position: absolute;
     bottom: 0;
-    z-index: 999;
+    z-index: 99;
+    display: flex;
 }
 
 .slider__button {
@@ -71,4 +108,42 @@ h1 {
     border: none;
     padding: 10px 30px;
     cursor: pointer;
+}
+
+.slider__button:first-child {
+    margin-right: 2px;
+}
+
+.btn-toggle {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button--nav {
+    position: fixed;
+    z-index: 999;
+    left: 20px;
+    top:20px;
+}
+
+.message {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--cyan-process);
+    color: var(--magnolia);
+    padding: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+button {
+    transition: background-color .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button:focus {
+    outline: none;
+    background-color: #EDDB68;
 }
