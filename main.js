@@ -31,7 +31,9 @@ $(document).ready(function () {
             $($slides[i + 1]).fadeIn();
             i++
         } else {
-
+            $($slides[i]).fadeOut();
+            $($slides[0]).fadeIn();
+            i = 0;
         }
     }
 
