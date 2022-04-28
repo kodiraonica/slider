@@ -83,11 +83,21 @@ $(document).ready(function () {
 
     function showMessage() {
         $slides = $(".slide");
-        const message = 
+        const $hasMessage = $(".message");
+
+        if($hasMessage.length > 0) {
+            $hasMessage.text($slides.length)
+            $("body").append($hasMessage);
+            $hasMessage.fadeIn();
+        }else {
+            const message = 
         `
         <div class="message">${$slides.length} </div>
         `
-        $("body").append(message)
+        $("body").append(message);
+        $hasMessage.fadeIn();
+
+        }
 
     }
 
