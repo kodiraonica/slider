@@ -22,7 +22,7 @@ $(document).ready(function () {
   }
 
   $addButton.click(() => {
-    const $sliderWrapper = $(".slider_wrapper");
+    const $sliderWrapper = $(".slider__wrapper");
     const $slide = `
     <div class ="slide"> <h2> 4 </h2> </div>
     `
