@@ -6,14 +6,21 @@ $(document).ready(function () {
     const keyCodeRight = 39;
     const keyCodeLeft = 37;
     const keyCodeEscape = 27;
+    const localStorageIndex = Number(localStorage.getItem("NumberOfSlide"));
+    const numberOfSlides = Number(localStorage.getItem("NumberOfSlides"));
     const darkMode = localStorage.getItem("darkmode");
     const $btnToggle = $(".btn-toggle");
     const $addButton = $(".button--add");
 
     let i = 0;
 
-    const localStorageIndex = Number(localStorage.getItem("NumberOfSlide"));
+    if(numberOfSlides > 3) {
+        console.log(numberOfSlides)
 
+        for(let j=3; j <numberOfSlides; j++) {
+            addNewSlide();
+        }
+    }
     if(localStorageIndex) {
         $($slides[localStorageIndex]).fadeIn();
         i = localStorageIndex;
@@ -25,16 +32,7 @@ $(document).ready(function () {
 
 
     $addButton.click(() => {
-        const bgColors = ["#ee6352ff", "#08b2e3ff", "#57a773ff"];
-        const randomColor = Math.floor(Math.random()*bgColors.length);
-        const $slideWrapper = $(".slider__wrapper")
-        const $slide = 
-        `
-        <div class="slide" style="background-color: ${bgColors[randomColor]}"> <h2>4</h2> </div>
-        `
-        $slideWrapper.append($slide);
-        $slides = $(".slide");
-        slidesIndex++
+        addNewSlide();
     })
 
 
@@ -51,6 +49,24 @@ $(document).ready(function () {
     $('.button--nav').click(function () {
         $('nav').toggleClass("open");
     });
+
+    function addNewSlide() {
+        createSlide();
+        slidesIndex++
+    }
+
+    function createSlide() {
+        const bgColors = ["#ee6352ff", "#08b2e3ff", "#57a773ff"];
+        const randomColor = Math.floor(Math.random()*bgColors.length);
+        const $slideWrapper = $(".slider__wrapper")
+        const $slide = 
+        `
+        <div class="slide" style="background-color: ${bgColors[randomColor]}"> <h2> ${slidesIndex +2}</h2> </div>
+        `
+        $slideWrapper.append($slide);
+        $slides = $(".slide");
+        localStorage.setItem("NumberOfSlides", $slides.length )
+    }
 
     function toggleNavigation() {
         $('.button--nav').click(function () {
