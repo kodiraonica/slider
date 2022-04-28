@@ -15,7 +15,6 @@ $(document).ready(function () {
     let i = 0;
 
     if(numberOfSlides > 3) {
-        console.log(numberOfSlides)
 
         for(let j=3; j <numberOfSlides; j++) {
             addNewSlide();
@@ -33,6 +32,7 @@ $(document).ready(function () {
 
     $addButton.click(() => {
         addNewSlide();
+        showMessage();
     })
 
 
@@ -66,6 +66,15 @@ $(document).ready(function () {
         $slideWrapper.append($slide);
         $slides = $(".slide");
         localStorage.setItem("NumberOfSlides", $slides.length )
+    }
+
+    function showMessage() {
+        $slides = $(".slide");
+        const message = 
+        `
+        <div class="message">${$slides.length} </div>
+        `
+        $("body").append(message)
     }
 
     function toggleNavigation() {
