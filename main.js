@@ -14,7 +14,7 @@ $(document).ready(function () {
   let i = 0;
 
   if (numberOfSlides > 3) {
-    for (let j = 0; j < numberOfSlides; j++) {
+    for (let j = 3; j < numberOfSlides; j++) {
       addNewSlide();
     }
   }
