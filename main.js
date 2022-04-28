@@ -30,6 +30,7 @@ $(document).ready(function () {
 
   $addButton.click(() => {
     addNewSlide();
+    showMessage();
   });
 
   function addNewSlide() {
@@ -48,6 +49,14 @@ $(document).ready(function () {
     $sliderWrapper.append($slide);
     $slides = $(".slide");
     localStorage.setItem("numberOfSlides", $slides.length);
+  }
+
+  function showMessage() {
+    $slides = $(".slide");
+    const message = `
+      <div class="message"> ${$slides.length} </div>
+    `
+    $("body").append(message)
   }
 
   $btnToggle.click(() => {

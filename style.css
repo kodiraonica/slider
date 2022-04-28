@@ -116,3 +116,14 @@ nav.open {
   padding: 8px;
   cursor: pointer;
 }
+
+.message {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: var(--cyan-process);
+  color: var(--magnolia);
+  padding: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
