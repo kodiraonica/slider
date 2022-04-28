@@ -11,6 +11,7 @@ $(document).ready(function () {
     const darkMode = localStorage.getItem("darkmode");
     const $btnToggle = $(".btn-toggle");
     const $addButton = $(".button--add");
+    const $resetButton = $(".button--reset")
 
     let i = 0;
 
@@ -32,6 +33,18 @@ $(document).ready(function () {
 
     $addButton.click(() => {
         addNewSlide();
+        showMessage();
+    })
+
+    $resetButton.click(() => {
+        $slides.remove();
+        slidesIndex = -1;
+        i = 1;
+
+        for (let j= 3; j<3; j++) {
+            addNewSlide();
+        }
+        $($slides[0]).fadeIn();
         showMessage();
     })
 
@@ -75,6 +88,7 @@ $(document).ready(function () {
         <div class="message">${$slides.length} </div>
         `
         $("body").append(message)
+
     }
 
     function toggleNavigation() {
