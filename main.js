@@ -11,6 +11,7 @@ $(document).ready(function () {
   const darkMode = localStorage.getItem("darkmode");
   const $btnToggle = $(".btn-toggle");
   const $addButton = $(".button--add");
+  const $resetButton = $(".button--reset");
   let i = 0;
 
   if (numberOfSlides > 3) {
@@ -32,6 +33,19 @@ $(document).ready(function () {
     addNewSlide();
     showMessage();
   });
+
+  $resetButton.click(() => {
+    $slides.remove();
+    slidesIndex = -1;
+    i = 1;
+
+    for (let j = 0; j < 3; j++) {
+      addNewSlide();
+    }
+
+    $($slides[0]).fadeIn();
+    showMessage();
+  })
 
   function addNewSlide() {
     createSlide();
