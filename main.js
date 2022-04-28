@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     $($slides[0]).fadeIn();
     showMessage();
-  })
+  });
 
   function addNewSlide() {
     createSlide();
@@ -56,21 +56,34 @@ $(document).ready(function () {
     const bgColors = ["#ee6352ff", "#08b2e3ff", "#57a773ff"];
     const randomColor = Math.floor(Math.random() * bgColors.length);
     const $sliderWrapper = $(".slider__wrapper");
-    const $slide = 
-    `
-    <div class ="slide" style="background-color: ${bgColors[randomColor]}"> <h2> ${slidesIndex + 2} </h2> </div>
+    const $slide = `
+    <div class ="slide" style="background-color: ${
+      bgColors[randomColor]
+    }"> <h2> ${slidesIndex + 2} </h2> </div>
     `
     $sliderWrapper.append($slide);
     $slides = $(".slide");
+    const hasMessage = $(".message");
     localStorage.setItem("numberOfSlides", $slides.length);
   }
 
   function showMessage() {
     $slides = $(".slide");
-    const message = `
+    const hasMessage = $(".message");
+    
+    $("body").append(message);
+
+    if (hasMessage.length > 0) {
+      $hasMessage.text($slides.length);
+      $("body").append($hasMessage);
+      $hasMessage.fadeIn();
+    } else {
+      const message = `
       <div class="message"> ${$slides.length} </div>
     `
-    $("body").append(message)
+      $("body").append(message);
+      $hasMessage.fadeIn();
+    }
   }
 
   $btnToggle.click(() => {
