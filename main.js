@@ -41,7 +41,7 @@ $(document).ready(function () {
         slidesIndex = -1;
         i = 1;
 
-        for (let j= 3; j<3; j++) {
+        for (let j= 0; j<3; j++) {
             addNewSlide();
         }
         $($slides[0]).fadeIn();
