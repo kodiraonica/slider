@@ -7,10 +7,17 @@ $(document).ready(function () {
   const keyCodeLeft = 37;
   const keyCodeEscape = 27;
   const localStorageIndex = Number(localStorage.getItem("numberOfSlide"));
+  const numberOfSlides = Number(localStorage.getItem("numberOfSlides"));
   const darkMode = localStorage.getItem("darkmode");
   const $btnToggle = $(".btn-toggle");
   const $addButton = $(".button--add");
   let i = 0;
+
+  if (numberOfSlides > 3) {
+    for (let j = 3; j < numberOfSlides; j++) {
+      addNewSlide();
+    }
+  }
 
   if (localStorageIndex) {
     $($slides[localStorageIndex]).fadeIn();
@@ -22,16 +29,26 @@ $(document).ready(function () {
   }
 
   $addButton.click(() => {
+    addNewSlide();
+  });
+
+  function addNewSlide() {
+    createSlide();
+    slidesIndex++;
+  }
+
+  function createSlide() {
     const bgColors = ["#ee6352ff", "#08b2e3ff", "#57a773ff"];
     const randomColor = Math.floor(Math.random() * bgColors.length);
     const $sliderWrapper = $(".slider__wrapper");
-    const $slide = `
-    <div class ="slide" style="background-color: ${bgColors[randomColor]}"> <h2> 4 </h2> </div>
+    const $slide = 
+    `
+    <div class ="slide" style="background-color: ${bgColors[randomColor]}"> <h2> ${slidesIndex + 2} </h2> </div>
     `
     $sliderWrapper.append($slide);
     $slides = $(".slide");
-    slidesIndex++
-  });
+    localStorage.setItem("numberOfSlides", $slides.length);
+  }
 
   $btnToggle.click(() => {
     if ($("body").hasClass("dark")) {
