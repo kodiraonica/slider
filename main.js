@@ -25,10 +25,12 @@ $(document).ready(function () {
 
 
     $addButton.click(() => {
+        const bgColors = ["#ee6352ff", "#08b2e3ff", "#57a773ff"];
+        const randomColor = Math.floor(Math.random()*bgColors.length);
         const $slideWrapper = $(".slider__wrapper")
         const $slide = 
         `
-        <div class="slide"> <h2>4</h2> </div>
+        <div class="slide" style="background-color: ${bgColors[randomColor]}"> <h2>4</h2> </div>
         `
         $slideWrapper.append($slide);
         $slides = $(".slide");
