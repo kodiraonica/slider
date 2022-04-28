@@ -10,6 +10,13 @@ $(document).ready(function () {
 
   let i = 0;
 
+  const localStorageIndex = Number(localStorage.getItem('numberOfSlide'));
+
+  if (localStorageIndex) {
+    $($slides[localStorageIndex]).fadeIn();
+    i = localStorageIndex;
+  }
+
   const darkMode = localStorage.getItem("darkmode");
   if (darkMode === "true") {
     $("body").addClass("dark");
@@ -46,6 +53,7 @@ $(document).ready(function () {
       $($slides[0]).fadeOut();
       $($slides[slidesIndex]).fadeIn();
       i = slidesIndex;
+      localStorage.setItem("slideIndex", i);
     }
   }
 
@@ -63,6 +71,7 @@ $(document).ready(function () {
       $($slides[0]).fadeIn();
       i = 0;
     }
+    localStorage.setItem("slideIndex", i)
   }
 
   $nextButton.click(() => {
