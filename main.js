@@ -1,28 +1,35 @@
 $(document).ready(function () {
-  const $slides = $(".slide");
-  const slidesIndex = $slides.length - 1;
+  let $slides = $(".slide");
+  let slidesIndex = $slides.length - 1;
   const $prevButton = $(".slider__button--prev");
   const $nextButton = $(".slider__button--next");
-
   const keyCodeRight = 39;
   const keyCodeLeft = 37;
   const keyCodeEscape = 27;
-
-  let i = 0;
-
   const localStorageIndex = Number(localStorage.getItem("numberOfSlide"));
+  const darkMode = localStorage.getItem("darkmode");
+  const $btnToggle = $(".btn-toggle");
+  const $addButton = $(".button--add");
+  let i = 0;
 
   if (localStorageIndex) {
     $($slides[localStorageIndex]).fadeIn();
     i = localStorageIndex;
   }
 
-  const darkMode = localStorage.getItem("darkmode");
   if (darkMode === "true") {
     $("body").addClass("dark");
   }
 
-  const $btnToggle = $(".btn-toggle");
+  $addButton.click(() => {
+    const $sliderWrapper = $(".slider__wrapper");
+    const $slide = `
+    <div class ="slide"> <h2> 4 </h2> </div>
+    `
+    $sliderWrapper.append($slide);
+    $slides = $(".slide");
+    slidesIndex++
+  });
 
   $btnToggle.click(() => {
     if ($("body").hasClass("dark")) {
