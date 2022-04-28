@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   let i = 0;
 
-  const localStorageIndex = Number(localStorage.getItem('numberOfSlide'));
+  const localStorageIndex = Number(localStorage.getItem("numberOfSlide"));
 
   if (localStorageIndex) {
     $($slides[localStorageIndex]).fadeIn();
@@ -53,8 +53,8 @@ $(document).ready(function () {
       $($slides[0]).fadeOut();
       $($slides[slidesIndex]).fadeIn();
       i = slidesIndex;
-      localStorage.setItem("slideIndex", i);
     }
+    localStorage.setItem("numberOfSlide", i);
   }
 
   $prevButton.click(() => {
@@ -71,7 +71,7 @@ $(document).ready(function () {
       $($slides[0]).fadeIn();
       i = 0;
     }
-    localStorage.setItem("slideIndex", i)
+    localStorage.setItem("numberOfSlide", i);
   }
 
   $nextButton.click(() => {
