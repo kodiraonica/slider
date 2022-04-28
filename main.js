@@ -24,8 +24,11 @@ $(document).ready(function () {
   $addButton.click(() => {
     const $sliderWrapper = $(".slider_wrapper");
     const $slide = `
-    <div class ="slide"> <h2> 4 <h2> </div>
-    `;
+    <div class ="slide"> <h2> 4 </h2> </div>
+    `
+    $sliderWrapper.append($slide);
+    $slides = $(".slide");
+    slidesIndex++
   });
 
   $btnToggle.click(() => {
